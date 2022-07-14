@@ -26,7 +26,7 @@
     },
     "br9.3": {
       "air": ["Yak-38", "J-7II", "F-86F-2", "Scimitar F Mk.1", "Ariete"],
-      "tank": ["XM-1 (GM)", "Dardo", "KPz-70", "AMX-32 (testing)"],
+      "tank": ["XM-1 (GM)", "Dardo", "KPz-70", "AMX-32"],
       "aa": ["M247"]
     },
     "br8.3": {
@@ -45,7 +45,7 @@
       "aa": ["R3 T20 FA-HS"]
     },
     "br5.3": {
-      "air": ["Bf 109 G-14", "Yak-3P (testing)", "A7M2 (testing)", "Tu-2S"],
+      "air": ["Bf 109 G-14", "Yak-3P", "A7M2", "Tu-2S"],
       "tank": ["Tiger H1", "M4A2 (76) W", "M4A3E2", "T34-85 (D-5T)", "IS-1"],
       "aa": ["R3 T20 FA-HS"]
     },
@@ -54,33 +54,116 @@
         "Bf 109 G-2/G-6",
         "Tu-2",
         "B18",
-        "Yak-9U (testing)",
-        "J2M2 (testing)",
-        "Typhoon MK Ib/L (testing)"
+        "Yak-9U",
+        "J2M2",
+        "Typhoon MK Ib/L"
       ],
-      "tank": [
-        "T14",
-        "M4A1 (76) W",
-        "KV-85",
-        "Lorraine 155 MLE",
-        "Anti Aircraft",
-        "Ostwind",
-        "Wirbelwind",
-        "AMX-13 DCA 40"
-      ],
-      "aa": []
+      "tank": ["T14", "M4A1 (76) W", "KV-85", "Lorraine 155 MLE"],
+      "aa": ["Ostwind", "Wirbelwind", "AMX-13 DCA 40"]
     },
     "br3.7": {
       "air": ["SB2C-4", "SB2C-5", "Ki-44-II hei", "B7A2", "B18B"],
-      "tank": [
-        "M4A5",
-        "M4",
-        "Anti Aircraft",
-        "Ostwind",
-        "Wirbelwind",
-        "Crusader AA (edited)"
-      ],
-      "aa": []
+      "tank": ["M4A5", "M4"],
+      "aa": ["Ostwind", "Wirbelwind", "Crusader AA"]
+    }
+  },
+  "vehicles": {
+    "aa": {
+      "AMX-13 DCA 40": "fr",
+      "Crusader AA": "gb",
+      "FlaRakPz 1": "de",
+      "Flugabwehrraketensystem Roland auf Radkraftfahrzeug": "de",
+      "ItO 90M": ["se", "fr"],
+      "M247": "us",
+      "Marder A1": "de",
+      "Ostwind": "de",
+      "R3 T20 FA-HS": "it",
+      "Stormer HVM": "gb",
+      "VEAK 40": "se",
+      "Wirbelwind": "de",
+      "XM975": "us"
+    },
+    "air": {
+      "A7M2": "jp",
+      "Ar 234 C-3": "de",
+      "Arado": "de",
+      "Ariete": "it",
+      "B18": "se",
+      "B18B": "se",
+      "B7A2": "jp",
+      "Bf 109 G-14": "de",
+      "Bf 109 G-2/G-6": "de",
+      "F-14A Early": "us",
+      "F-5C": "us",
+      "F-5E": "us",
+      "F-86F-2": "us",
+      "F4U-4B": "us",
+      "F8F-1B": "us",
+      "J-7E": "cn",
+      "J-7II": "cn",
+      "J2M2": "jp",
+      "Ka-52": "ru",
+      "Ki-44-II hei": ["cn", "jp"],
+      "Me 262 C-1a": "de",
+      "Mi-28A": "ru",
+      "Mi-28NM": "ru",
+      "Mi-35M": "ru",
+      "MiG-15": "ru",
+      "MiG-15bis": "ru",
+      "MiG-21MF": "de",
+      "MiG-21SMT": "ru",
+      "MiG-23MLD": "ru",
+      "MiG-27K": "ru",
+      "SAAB-105OE": "se",
+      "SB2C-4": "us",
+      "SB2C-5": "fr",
+      "Scimitar F Mk.1": "gb",
+      "Sea Meteor F Mk.3": "gb",
+      "Su-11": "ru",
+      "Tu-2": "ru",
+      "Tu-2S": "ru",
+      "Typhoon MK Ib/L": "gb",
+      "Yak-38": "ru",
+      "Yak-3P": "ru",
+      "Yak-9U": "ru",
+      "Z-19E": "cn"
+    },
+    "tank": {
+      "AMX-32": "fr",
+      "AMX-50": "fr",
+      "Caernarvon": "gb",
+      "Char 25t": "fr",
+      "Dardo": "it",
+      "IS-1": "ru",
+      "IS-6": "ru",
+      "IS-7": "ru",
+      "KPz-70": "de",
+      "KV-85": "ru",
+      "Leclerc": "fr",
+      "Leopard 2A4": "de",
+      "Leopard 2A6": "de",
+      "Lorraine 155 MLE": "fr",
+      "M1A1": "us",
+      "M1A2 Abrams": "us",
+      "M26A1": "it",
+      "M4": "us",
+      "M4A1 (76) W": "us",
+      "M4A2 (76) W": "us",
+      "M4A3E2": "us",
+      "M4A5": "us",
+      "Merkava Mk.3D": "us",
+      "Somua SM": "fr",
+      "Strv 121": "se",
+      "Strv 122A/B PLSS": "se",
+      "T-55AM-1": "ru",
+      "T-80BVM": "ru",
+      "T14": "us",
+      "T34-85 (D-5T)": "ru",
+      "Tiger H1": "de",
+      "Tiger II (P)": "de",
+      "VT1-2": "de",
+      "WMA301": "cn",
+      "XM-1 (GM)": "us"
     }
   }
 }
