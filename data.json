@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "br11.0": {
+      "air": [
+        "F-5E",
+        "F-14A Early",
+        "MiG-23MLD",
+        "MiG-27K",
+        "J-7E",
+        "Ka-52",
+        "Mi-28NM"
+      ],
+      "tank": [
+        "Strv 122A/B PLSS",
+        "Leopard 2A6",
+        "T-80BVM",
+        "M1A2 Abrams",
+        "Leclerc"
+      ],
+      "aa": ["Flugabwehrraketensystem Roland auf Radkraftfahrzeug", "ItO 90M"]
+    },
+    "br10.3": {
+      "air": ["MiG-21SMT", "MiG-21MF", "F-5C", "Z-19E", "Mi-35M", "Mi-28A"],
+      "tank": ["Merkava Mk.3D", "M1A1", "Strv 121", "Leopard 2A4"],
+      "aa": ["FlaRakPz 1", "XM975", "M247", "Stormer HVM"]
+    },
+    "br9.3": {
+      "air": ["Yak-38", "J-7II", "F-86F-2", "Scimitar F Mk.1", "Ariete"],
+      "tank": ["XM-1 (GM)", "Dardo", "KPz-70", "AMX-32 (testing)"],
+      "aa": ["M247"]
+    },
+    "br8.3": {
+      "air": ["SAAB-105OE", "MiG-15", "MiG-15bis ISH"],
+      "tank": ["T-55AM-1", "IS-7", "VT1-2", "WMA301"],
+      "aa": ["VEAK 40"]
+    },
+    "br7.3": {
+      "air": ["Ar 234 C-3", "Me 262 C-1a", "Sea Meteor F Mk.3", "Su-11"],
+      "tank": ["Somua SM", "Caernarvon", "AMX-50", "IS-6", "Char 25t"],
+      "aa": ["R3 T20 FA-HS", "Marder A1"]
+    },
+    "br6.3": {
+      "air": ["F8F-1B", "F4U-4B", "Tu-2S", "Arado"],
+      "tank": ["Tiger II (P)", "M26A1"],
+      "aa": ["R3 T20 FA-HS"]
+    },
+    "br5.3": {
+      "air": ["Bf 109 G-14", "Yak-3P (testing)", "A7M2 (testing)", "Tu-2S"],
+      "tank": ["Tiger H1", "M4A2 (76) W", "M4A3E2", "T34-85 (D-5T)", "IS-1"],
+      "aa": ["R3 T20 FA-HS"]
+    },
+    "br4.3": {
+      "air": [
+        "Bf 109 G-2/G-6",
+        "Tu-2",
+        "B18",
+        "Yak-9U (testing)",
+        "J2M2 (testing)",
+        "Typhoon MK Ib/L (testing)"
+      ],
+      "tank": [
+        "T14",
+        "M4A1 (76) W",
+        "KV-85",
+        "Lorraine 155 MLE",
+        "Anti Aircraft",
+        "Ostwind",
+        "Wirbelwind",
+        "AMX-13 DCA 40"
+      ],
+      "aa": []
+    },
+    "br3.7": {
+      "air": ["SB2C-4", "SB2C-5", "Ki-44-II hei", "B7A2", "B18B"],
+      "tank": [
+        "M4A5",
+        "M4",
+        "Anti Aircraft",
+        "Ostwind",
+        "Wirbelwind",
+        "Crusader AA (edited)"
+      ],
+      "aa": []
+    }
+  }
+}
