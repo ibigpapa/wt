@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    </head>
+    <body>
+        <div id="outputDiv">
+            <label for="num_input">GE</label>
+            <input type="number" id="num_input" min="0">
+            <button id="button_cost">Calc</button>
+            <label for="num_dollars">$</label>
+            <input type="readonly" id="num_dollars">
+        </div>
+        <py-script>
+from pyodide import create_proxy
+
+ge_const = 0.0066
+def on_calc_click(event):
+    inp = document.querySelector("#num_input")
+    ou = document.querySelector("#num_dollars")
+    val = int(inp.value)
+    ou.value = val * ge_const
+
+button = document.querySelector("#button_cost")
+button.addEventListener("click", create_proxy(on_calc_click))
+
+        </py-script>
+    </body>
+</html>
