@@ -30,7 +30,7 @@
       "aa": ["M247"]
     },
     "br8.3": {
-      "air": ["SAAB-105OE", "MiG-15", "MiG-15bis ISH"],
+      "air": ["SAAB-105OE", "MiG-15", "MiG-15bis"],
       "tank": ["T-55AM-1", "IS-7", "VT1-2", "WMA301"],
       "aa": ["VEAK 40"]
     },

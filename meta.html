@@ -20,9 +20,11 @@ github_page_base = "https://ibigpapa.github.io/wt/"
 flags_path = f"{github_page_base}flags/1x1/"
 
 # category icons
-air_icon = "&#x2708;"
-tank_icon = "&#x1F69C;"
-aa_icon = "&#x1F4E1;"
+category_icons = {
+    "air": "&#x2708;",
+    "tank": "&#x1F69C;",
+    "aa": "&#x1F4E1;",
+}
 
 
 #flags
@@ -58,6 +60,7 @@ def create_flag(short_name):
     child.alt = short_name
     child.width = flag_size_const
     child.height = flag_size_const
+    child.className = "inline"
     return child
 
 def create_row(id):
@@ -72,23 +75,67 @@ def create_col(id):
     child.id = id
     return child
 
-def create_ul_list(vics, category, vics_dict):
+def create_ul_list(br, category):
+    vics_dict = data["vehicles"]
     ul = document.createElement("ul")
-    for vic in vics:
+    for vic in data["meta"][br][category]:
         li = document.createElement("li")
-        span = document.createElment("span")
+        span = document.createElement("span")
         span.innerText = vic
         if vic not in vics_dict[category]:
             js.console.log(f"{vic}: not in vics dict")
         else:
-            img = create_flag(vics_dict[category][vic])
-            li.appendChild(img)
+            flags = vics_dict[category][vic]
+            if not isinstance(flags, list):
+                flags = [flags]
+            for idx, flag in enumerate(flags):
+                img = create_flag(flag)
+                li.appendChild(img)
+                js.console.log(f"idx:{idx} len:{len(flags)} math: {len(flags)-1} cond: {idx != len(flags) - 1}")
+                if idx != len(flags) - 1:
+                    span_slash = document.createElement("span")
+                    span_slash.className = "inline ml-1 mr-1"
+                    span_slash.innerText = "/"
+                    li.appendChild(span_slash)
+
         li.appendChild(span)
-            
+        ul.appendChild(li)
+    return ul
+
+def create_cat_title(category):
+    heading = document.createElement("h5")
+    heading.innerText = f"{category_icons[category]} {category}"
+    return heading
+
+def create_br(br):
+    row = create_row(br)
+    for category in ["air", "tank", "aa"]:
+        col = create_col(category)
+        heading = create_cat_title(category)
+        col.appendChild(heading)
+        col.appendChild(
+            create_ul_list(br, category)
+        )
+        row.append(col)
+    return row
+
+def create_br_title(br):
+    heading = document.createElement("h3")
+    heading.innerText = f"{br}"
+    return heading
+
+def process_brs(ele):
+    for br in data["meta"]:
+        row = create_row(br)
+        heading = create_br_title(br)
+        row.appendChild(heading)
+        ele.append(row)
+        row = create_br(br)
+        ele.append(row)
+
 data = get_data()
 container = document.querySelector("#output")
-container.appendChild(create_ul_list(data["meta"]["br4.3"]["air"], "air", data["vehicles"]))
-
+process_brs(container)
         </py-script>
     </body>
 </html>
