@@ -6,7 +6,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="output">
             <form id="ge2dollars">
                 <div class="input-group col-sm-1 mb-3">
                     <span class="input-group-text">GE</span>
@@ -16,15 +16,29 @@ def on_click(evt):
     evt.preventDefault()
     ge_const = 0.0066
     inp = document.querySelector("#num_input")
-    ou = document.querySelector("#num_dollars")
+    div_out = document.querySelector("#output")
     val = int(inp.value)
-    ou.value = val * ge_const
-    return False
+    val_out = val * ge_const
+    div_row = document.createElement("div")
+    div_row.className = "row"
+    div_row.id = "calc_list_row"
+    div_col = document.createElement("div")
+    div_col.className = "col"
+    div_col.id = "calc_list_col"
+    span = document.createElement("span")
+    span.innerText = f"GE {val} = ${val_out:.2f}"
+    span.id = "calc_list_span"
+    div_col.appendChild(span)
+    div_row.appendChild(div_col)
+    div_out.appendChild(div_row)
                     </py-button>
-                </div>
-                <div class="input-group col-sm-1">
-                    <span class="input-group-text">$</span>
-                    <input type="readonly" id="num_dollars" class="form-control" size="30">
+                    <py-button id="button_reset" label="Clear">
+def on_click(evt):
+    evt.preventDefault()
+    elms = document.querySelectorAll("#calc_list_row")
+    for elm in elms:
+        elm.remove()
+                    </py-button>
                 </div>
             </form>
         </div>
