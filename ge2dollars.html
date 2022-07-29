@@ -8,16 +8,50 @@
     <body>
         <div class="container" id="output">
             <form id="ge2dollars">
+                <div class="row">
+                    <div class="col">
+                        <h2>Single GE Costs Calculator</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <span class="input-group-text">GEs in bundle</span>
+                            <input type="number" id="ges_in_bundle" min="0" class="form-control" size="30" value="25000" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <span class="input-group-text">Bundle Cost $</span>
+                            <input type="number" id="units_for_bundle" step="0.01" min="0.00" class="form-control" size="30" value="165.00" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <span class="input-group-text">= Cost per GE $</span>
+                            <input type="number" id="cost_per_ge_for_bundle" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://store.gaijin.net/catalog.php?category=GoldenEagles">Gaijin GE Bundles Online</a>
+                    </div>
+                </div>
+                <div>
+                    <h2> Total Unit Costs </h2>
+                </div>
                 <div class="input-group col-sm-1 mb-3">
                     <span class="input-group-text">GE</span>
                     <input type="number" id="num_input" min="0" class="form-control" size="30">
                     <py-button id="button_cost"  label="Calc">
 def on_click(evt):
     evt.preventDefault()
-    ge_const = 0.0066
+    cost_per_ge_for_bundle_elm = document.querySelector("#cost_per_ge_for_bundle")
     inp = document.querySelector("#num_input")
     div_out = document.querySelector("#output")
     val = int(inp.value)
+    ge_const = float(cost_per_ge_for_bundle_elm.value)
     val_out = val * ge_const
     div_row = document.createElement("div")
     div_row.className = "row"
@@ -26,7 +60,7 @@ def on_click(evt):
     div_col.className = "col"
     div_col.id = "calc_list_col"
     span = document.createElement("span")
-    span.innerText = f"GE {val} = ${val_out:.2f}"
+    span.innerText = f"GE {val} * {ge_const} = ${val_out:.2f}"
     span.id = "calc_list_span"
     div_col.appendChild(span)
     div_row.appendChild(div_col)
@@ -42,5 +76,24 @@ def on_click(evt):
                 </div>
             </form>
         </div>
+        <py-script>
+from pyodide import create_proxy
+
+def on_single_ge_unit_cost_lost_focus(evt):
+    ges_in_bundle_elm = document.querySelector("#ges_in_bundle")
+    units_for_bundle_elm = document.querySelector("#units_for_bundle")
+    cost_per_ge_for_bundle_elm = document.querySelector("#cost_per_ge_for_bundle")
+    ges = int(ges_in_bundle_elm.value)
+    units = float(units_for_bundle_elm.value)
+    cost_per_ge_for_bundle_elm.value = units/ges
+
+
+ges_in_bundle_elm = document.querySelector("#ges_in_bundle")
+units_for_bundle_elm = document.querySelector("#units_for_bundle")
+ges_in_bundle_elm.addEventListener("blur", create_proxy(on_single_ge_unit_cost_lost_focus))
+units_for_bundle_elm.addEventListener("blur", create_proxy(on_single_ge_unit_cost_lost_focus))
+on_single_ge_unit_cost_lost_focus(None)
+
+        </py-script>
     </body>
 </html>
