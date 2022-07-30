@@ -67,6 +67,8 @@ def on_click(evt):
     cost_per_ge_for_bundle_elm = document.querySelector("#cost_per_ge_for_bundle")
     inp = document.querySelector("#num_input")
     div_out = document.querySelector("#output")
+    if len(inp.value) == 0:
+        return 
     val = int(inp.value)
     ge_const = float(cost_per_ge_for_bundle_elm.value)
     val_out = val * ge_const
