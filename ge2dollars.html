@@ -17,19 +17,34 @@
                     <div class="col">
                         <div class="input-group">
                             <span class="input-group-text">GEs in bundle</span>
-                            <input type="number" id="ges_in_bundle" min="0" class="form-control" size="30" value="25000" />
+                            <input type="number" id="ges_in_bundle" min="0" class="form-control" size="15" value="25000" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group">
                             <span class="input-group-text">Bundle Cost $</span>
-                            <input type="number" id="units_for_bundle" step="0.01" min="0.00" class="form-control" size="30" value="165.00" />
+                            <input type="number" id="units_for_bundle" step="0.01" min="0.00" class="form-control" size="15" value="165.00" />
                         </div>
                     </div>
                     <div class="col">
                         <div class="input-group">
                             <span class="input-group-text">= $/GE</span>
-                            <input type="number" id="cost_per_ge_for_bundle" disabled/>
+                            <input type="text" id="cost_per_ge_for_bundle" disabled/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <py-button id="reset_single" label="reset">
+def on_click(evt):
+    evt.preventDefault()
+    ges_in_bundle_elm = document.querySelector("#ges_in_bundle")
+    units_for_bundle_elm = document.querySelector("#units_for_bundle")
+    ges_in_bundle_elm.value = 25000
+    units_for_bundle_elm.value = 165.00
+    on_single_ge_unit_cost_lost_focus(None)
+                            </py-button>
                         </div>
                     </div>
                 </div>
@@ -141,9 +156,14 @@ def on_single_ge_unit_cost_lost_focus(evt):
     ges_in_bundle_elm = document.querySelector("#ges_in_bundle")
     units_for_bundle_elm = document.querySelector("#units_for_bundle")
     cost_per_ge_for_bundle_elm = document.querySelector("#cost_per_ge_for_bundle")
-    ges = int(ges_in_bundle_elm.value)
-    units = float(units_for_bundle_elm.value)
-    ge_const= units/ges
+    try:
+        ges = int(ges_in_bundle_elm.value)
+        units = float(units_for_bundle_elm.value)
+        ge_const= units/ges
+    except Exception:
+        ges = 0
+        units = 0
+        ge_const = "NaN"
     cost_per_ge_for_bundle_elm.value = ge_const
     ge_table_body_const_elms = document.querySelectorAll("#ge_table_body_const")
     ge10_elm = document.querySelector("#ge10_table")
@@ -151,8 +171,21 @@ def on_single_ge_unit_cost_lost_focus(evt):
     ge1000_elm = document.querySelector("#ge1000_table")
     ge2000_elm = document.querySelector("#ge2000_table")
     ge2500_elm = document.querySelector("#ge2500_table")
+    num_input_elm = document.querySelector("#num_input")
+    btn_elm = document.querySelector("#button_cost")
     for elm in ge_table_body_const_elms:
         elm.innerText = ge_const
+    if ge_const == "NaN":
+        ge10_elm.innerText = "Nan"
+        ge100_elm.innerText = "Nan"
+        ge1000_elm.innerText = "Nan"
+        ge2000_elm.innerText = "Nan"
+        ge2500_elm.innerText = "Nan"
+        num_input_elm.disabled = True
+        btn_elm.disabled = True
+        return
+    num_input_elm.disabled = False
+    btn_elm.disabled = False
     ge10_elm.innerText = f"${10 * ge_const:.2f}"
     ge100_elm.innerText = f"${100 * ge_const:.2f}"
     ge1000_elm.innerText = f"${1000 * ge_const:.2f}"
